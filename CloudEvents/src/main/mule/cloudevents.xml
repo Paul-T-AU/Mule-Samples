@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:salesforce="http://www.mulesoft.org/schema/mule/salesforce"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/salesforce http://www.mulesoft.org/schema/mule/salesforce/current/mule-salesforce.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<salesforce:sfdc-config name="Salesforce_Config" doc:name="Salesforce Config" doc:id="6c8cb1e4-1140-4d92-8da1-72a9f3bf1254" >
+		<salesforce:cached-basic-connection username="CHANGEME" password="CHANGME" />
+	</salesforce:sfdc-config>
+	<flow name="cloudeventsFlow" doc:id="bf482a57-866b-444a-a187-935e7847afee" >
+		<salesforce:replay-channel doc:name="Replay channel" doc:id="b2ed92eb-86ab-4c79-a3ae-0bd1afbb1b6b" config-ref="Salesforce_Config" streamingChannel="/data/AccountChangeEvent" replayOption="ALL"/>
+		<ee:transform doc:name="Convert to JSON" doc:id="df670976-12f5-4275-896e-30158c9c0ad1" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<ee:transform doc:name="Structure as CloudEvents" doc:id="017cb597-8514-445e-aacd-22f4ecdf41dd" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+{
+	data: payload.data.payload as Object,
+	id: payload.data.payload.ChangeEventHeader.transactionKey,
+	source: payload.channel,
+	time: payload.data.payload.LastModifiedDate,
+	specversion: "1.0",
+	"type": payload.data.payload.ChangeEventHeader.entityName 
+	++ "/" 
+	++ payload.data.payload.ChangeEventHeader.changeType,
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<logger level="INFO" doc:name="Logger" doc:id="2afe5d44-ee00-45a2-b216-21f46a5bc3f3" message="#[payload]"/>
+	</flow>
+</mule>

@@ -1,0 +1,8 @@
+{
+  "data" : "{\n  \"data\": {\n    \"schema\": \"3GMiNj49MQ668cAWtXMh5Q\",\n    \"payload\": {\n      \"LastModifiedDate\": \"2020-07-23T22:12:45.000Z\",\n      \"Open_Opportunities_Value__c\": 0.0,\n      \"Open_Opportunities__c\": 0.0,\n      \"Website\": \"big.co\",\n      \"Name\": \"BigCo\",\n      \"ActiveLiveAgentUser__pc\": false,\n      \"CreatedById\": \"0052w000002kchAAAQ\",\n      \"OwnerId\": \"0052w000002kchAAAQ\",\n      \"Phone\": \"123456\",\n      \"ChangeEventHeader\": {\n        \"commitNumber\": 189725738634,\n        \"commitUser\": \"0052w000002kchAAAQ\",\n        \"sequenceNumber\": 1,\n        \"entityName\": \"Account\",\n        \"changeType\": \"CREATE\",\n        \"changedFields\": [\n          \n        ],\n        \"changeOrigin\": \"com/salesforce/api/soap/49.0;client=SfdcInternalAPI/\",\n        \"transactionKey\": \"0003bae9-52f8-9f0e-e47b-93bd9dd08500\",\n        \"commitTimestamp\": 1595542365000,\n        \"recordIds\": [\n          \"0012w00000HKvGBAA1\"\n        ]\n      },\n      \"CreatedDate\": \"2020-07-23T22:12:45.000Z\",\n      \"RecordTypeId\": \"0122w000000twcDAAQ\",\n      \"LastModifiedById\": \"0052w000002kchAAAQ\"\n    },\n    \"event\": {\n      \"replayId\": 19698\n    }\n  },\n  \"channel\": \"/data/AccountChangeEvent\"\n}",
+  "id" : "0003bae9-52f8-9f0e-e47b-93bd9dd08500",
+  "source" : "com/salesforce/api/soap/49.0;client=SfdcInternalAPI/",
+  "specversion" : "1.x-wip",
+  "type" : "/data/AccountChangeEvent",
+  "time" : "2020-04-05T03:56:24Z"
+}

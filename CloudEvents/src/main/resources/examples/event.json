@@ -1,0 +1,39 @@
+{
+  "data": {
+    "schema": "3GMiNj49MQ668cAWtXMh5Q",
+    "payload": {
+      "LastModifiedDate": "2020-07-23T22:12:45.000Z",
+      "Open_Opportunities_Value__c": 0.0,
+      "Open_Opportunities__c": 0.0,
+      "Website": "big.co",
+      "Name": "BigCo",
+      "ActiveLiveAgentUser__pc": false,
+      "CreatedById": "0052w000002kchAAAQ",
+      "OwnerId": "0052w000002kchAAAQ",
+      "Phone": "123456",
+      "ChangeEventHeader": {
+        "commitNumber": 189725738634,
+        "commitUser": "0052w000002kchAAAQ",
+        "sequenceNumber": 1,
+        "entityName": "Account",
+        "changeType": "CREATE",
+        "changedFields": [
+          
+        ],
+        "changeOrigin": "com/salesforce/api/soap/49.0;client=SfdcInternalAPI/",
+        "transactionKey": "0003bae9-52f8-9f0e-e47b-93bd9dd08500",
+        "commitTimestamp": 1595542365000,
+        "recordIds": [
+          "0012w00000HKvGBAA1"
+        ]
+      },
+      "CreatedDate": "2020-07-23T22:12:45.000Z",
+      "RecordTypeId": "0122w000000twcDAAQ",
+      "LastModifiedById": "0052w000002kchAAAQ"
+    },
+    "event": {
+      "replayId": 19698
+    }
+  },
+  "channel": "/data/AccountChangeEvent"
+}
